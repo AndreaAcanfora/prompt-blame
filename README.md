@@ -67,16 +67,22 @@ Add `--json` for machine-readable output.
 
 ## Install
 
-Prompt Blame is not on the Marketplace yet. Build it from source (Node 18+):
+Prompt Blame is not on the Marketplace yet. Download `prompt-blame-0.1.0.vsix` from the
+[latest release](https://github.com/AndreaAcanfora/prompt-blame/releases/latest), then:
+
+```sh
+code --install-extension prompt-blame-0.1.0.vsix
+```
+
+or in VS Code: Extensions view → `…` → *Install from VSIX…*. It needs VS Code 1.85 or later, on the same machine
+where Claude Code runs. Forks such as Cursor or VSCodium should work too, but are not tested yet.
+
+The CLI needs Node 18+:
 
 ```sh
 git clone https://github.com/AndreaAcanfora/prompt-blame && cd prompt-blame
-npm ci && npm run package          # creates prompt-blame-0.1.0.vsix
-code --install-extension prompt-blame-0.1.0.vsix
-npm link                           # optional: the prompt-blame CLI
+npm ci && npm run build && npm link     # then: prompt-blame <file>
 ```
-
-It needs VS Code 1.85 or later, on the same machine where Claude Code runs. Forks such as Cursor or VSCodium should work too, but are not tested yet.
 
 ## Settings
 

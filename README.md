@@ -74,7 +74,8 @@ Prompt Blame is not on the Marketplace yet. Download `prompt-blame-0.1.0.vsix` f
 code --install-extension prompt-blame-0.1.0.vsix
 ```
 
-or in VS Code: Extensions view → `…` → *Install from VSIX…*. It needs VS Code 1.85 or later, on the same machine
+or in VS Code: Extensions view → `…` → *Install from VSIX…*. To build the `.vsix` yourself:
+`git clone https://github.com/AndreaAcanfora/prompt-blame && cd prompt-blame && npm ci && npm run package`. It needs VS Code 1.85 or later, on the same machine
 where Claude Code runs. Forks such as Cursor or VSCodium should work too, but are not tested yet.
 
 The CLI needs Node 18+:

@@ -4,6 +4,8 @@
 while writing it, and the whole conversation one click away.
 
 [![CI](https://github.com/AndreaAcanfora/prompt-blame/actions/workflows/ci.yml/badge.svg)](https://github.com/AndreaAcanfora/prompt-blame/actions/workflows/ci.yml)
+[![VS Code Marketplace](https://img.shields.io/visual-studio-marketplace/v/AndreaAcanfora.prompt-blame?label=VS%20Code%20Marketplace)](https://marketplace.visualstudio.com/items?itemName=AndreaAcanfora.prompt-blame)
+[![npm](https://img.shields.io/npm/v/prompt-blame)](https://www.npmjs.com/package/prompt-blame)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 ![Hovering a line written by Claude shows the prompt behind it; lines are tinted by prompt, the hand-edited line is not](https://raw.githubusercontent.com/AndreaAcanfora/prompt-blame/main/docs/hover.png)
@@ -67,14 +69,15 @@ Add `--json` for machine-readable output.
 
 ## Install
 
-Prompt Blame is not on the Marketplace yet. Download `prompt-blame-0.1.0.vsix` from the
-[latest release](https://github.com/AndreaAcanfora/prompt-blame/releases/latest), then:
+Install it from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=AndreaAcanfora.prompt-blame),
+search for "Prompt Blame" in the Extensions view, or run:
 
 ```sh
-code --install-extension prompt-blame-0.1.0.vsix
+code --install-extension AndreaAcanfora.prompt-blame
 ```
 
-or in VS Code: Extensions view → `…` → *Install from VSIX…*. To build the `.vsix` yourself:
+Every [release](https://github.com/AndreaAcanfora/prompt-blame/releases/latest) also has the `.vsix`
+(Extensions view → `…` → *Install from VSIX…*). To build the `.vsix` yourself:
 `git clone https://github.com/AndreaAcanfora/prompt-blame && cd prompt-blame && npm ci && npm run package`. It needs VS Code 1.85 or later, on the same machine
 where Claude Code runs. Forks such as Cursor or VSCodium should work too, but are not tested yet.
 

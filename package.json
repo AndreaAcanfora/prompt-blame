@@ -1,0 +1,154 @@
+{
+  "name": "prompt-blame",
+  "displayName": "Prompt Blame",
+  "description": "git blame for AI code: see the Claude Code prompt and conversation behind every line. Zero setup, works on code you already wrote.",
+  "version": "0.1.0",
+  "publisher": "andreaacanfora",
+  "license": "MIT",
+  "icon": "media/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AndreaAcanfora/prompt-blame"
+  },
+  "homepage": "https://github.com/AndreaAcanfora/prompt-blame#readme",
+  "bugs": {
+    "url": "https://github.com/AndreaAcanfora/prompt-blame/issues"
+  },
+  "engines": {
+    "vscode": "^1.85.0",
+    "node": ">=18"
+  },
+  "categories": [
+    "Visualization",
+    "Other",
+    "AI"
+  ],
+  "keywords": [
+    "claude",
+    "claude code",
+    "ai",
+    "blame",
+    "provenance",
+    "prompt",
+    "code review",
+    "git blame",
+    "agents"
+  ],
+  "main": "./dist/extension.js",
+  "bin": {
+    "prompt-blame": "dist/cli.js"
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "promptBlame.openConversation",
+        "title": "Open Claude Conversation for This Line",
+        "category": "Prompt Blame",
+        "icon": "$(comment-discussion)"
+      },
+      {
+        "command": "promptBlame.toggleHighlight",
+        "title": "Toggle AI Line Highlights",
+        "category": "Prompt Blame",
+        "icon": "$(sparkle)"
+      },
+      {
+        "command": "promptBlame.copyPrompt",
+        "title": "Copy Prompt for This Line",
+        "category": "Prompt Blame"
+      },
+      {
+        "command": "promptBlame.fileReport",
+        "title": "Show AI Report for This File",
+        "category": "Prompt Blame"
+      },
+      {
+        "command": "promptBlame.refresh",
+        "title": "Rescan Claude Code Transcripts",
+        "category": "Prompt Blame"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "promptBlame.openConversation",
+          "group": "navigation@90",
+          "when": "resourceScheme == file"
+        }
+      ],
+      "editor/title": [
+        {
+          "command": "promptBlame.toggleHighlight",
+          "group": "navigation@90",
+          "when": "resourceScheme == file && config.promptBlame.titleButton"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Prompt Blame",
+      "properties": {
+        "promptBlame.currentLine": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show who wrote the current line, and the prompt, at the end of the line."
+        },
+        "promptBlame.hover": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the prompt and Claude's note when hovering a line written by Claude."
+        },
+        "promptBlame.highlight": {
+          "type": "boolean",
+          "default": false,
+          "description": "Highlight lines written by Claude (one color per prompt) when a workspace is opened for the first time."
+        },
+        "promptBlame.titleButton": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the highlight toggle in the editor title bar."
+        },
+        "promptBlame.claudeDir": {
+          "type": "string",
+          "default": "",
+          "description": "Claude Code config directory. Default: $CLAUDE_CONFIG_DIR or ~/.claude."
+        },
+        "promptBlame.refreshSeconds": {
+          "type": "number",
+          "default": 5,
+          "minimum": 2,
+          "description": "How often to look for new transcript entries, in seconds."
+        },
+        "promptBlame.conversationContext": {
+          "type": "number",
+          "default": 2,
+          "minimum": 0,
+          "description": "How many prompts before and after the edit to show in the conversation view."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "node esbuild.mjs",
+    "watch": "node esbuild.mjs --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "tsc -p tsconfig.test.json && node --test out/test/core.test.js",
+    "package": "vsce package --no-dependencies",
+    "vscode:prepublish": "node esbuild.mjs --production",
+    "test:integration": "node scripts/integration.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "@types/vscode": "^1.85.0",
+    "@vscode/test-electron": "^3.1.0",
+    "@vscode/vsce": "^4.1.0",
+    "esbuild": "^0.28.2",
+    "typescript": "^5.9.3"
+  },
+  "galleryBanner": {
+    "color": "#0d1117",
+    "theme": "dark"
+  }
+}

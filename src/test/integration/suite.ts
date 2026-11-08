@@ -26,7 +26,7 @@ async function pause(step: string): Promise<void> {
 export async function run(): Promise<void> {
   const file = process.env.PB_FILE!;
   const line = Number(process.env.PB_LINE ?? 1) - 1;
-  const ext = vscode.extensions.getExtension('andreaacanfora.prompt-blame');
+  const ext = vscode.extensions.getExtension('AndreaAcanfora.prompt-blame');
   assert.ok(ext, 'extension is installed');
   await ext.activate();
 

@@ -1,0 +1,25 @@
+name: Publish to the VS Code Marketplace
+
+# Uses Marketplace Trusted Publishing (OIDC): no token is stored in the repository.
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - name: Publish
+        run: npx vsce publish --oidc --no-dependencies --skip-duplicate

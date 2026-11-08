@@ -3,7 +3,7 @@
   "displayName": "Prompt Blame",
   "description": "git blame for AI code: see the Claude Code prompt and conversation behind every line. Zero setup, works on code you already wrote.",
   "version": "0.1.0",
-  "publisher": "andreaacanfora",
+  "publisher": "AndreaAcanfora",
   "license": "MIT",
   "icon": "media/icon.png",
   "repository": {
@@ -154,6 +154,8 @@
   },
   "files": [
     "dist/cli.js",
+    "dist/extension.js",
+    "media/icon.png",
     "README.md",
     "LICENSE",
     "CHANGELOG.md"

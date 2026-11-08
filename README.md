@@ -6,7 +6,7 @@ while writing it, and the whole conversation one click away.
 [![CI](https://github.com/AndreaAcanfora/prompt-blame/actions/workflows/ci.yml/badge.svg)](https://github.com/AndreaAcanfora/prompt-blame/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-![Hovering a line written by Claude shows the prompt behind it; lines are tinted by prompt, the hand-edited line is not](docs/hover.png)
+![Hovering a line written by Claude shows the prompt behind it; lines are tinted by prompt, the hand-edited line is not](https://raw.githubusercontent.com/AndreaAcanfora/prompt-blame/main/docs/hover.png)
 
 `git blame` says *you* wrote that retry loop at 23:12. It doesn't say it came from
 "make getJson retry with exponential backoff, but never on 4xx", or that Claude had a reason for the jitter.
@@ -31,7 +31,7 @@ edit Claude made against the current file:
 
 **Conversation view:** the turn that produced the line, with the diff of that exact edit and the prompts around it.
 
-![The conversation view next to the code: the prompt, Claude's reply and the diff of the edit](docs/conversation.png)
+![The conversation view next to the code: the prompt, Claude's reply and the diff of the edit](https://raw.githubusercontent.com/AndreaAcanfora/prompt-blame/main/docs/conversation.png)
 
 **File report:** *Prompt Blame: Show AI Report for This File* lists every prompt that still has lines in the file. Handy in code review.
 
@@ -81,8 +81,7 @@ where Claude Code runs. Forks such as Cursor or VSCodium should work too, but ar
 The CLI needs Node 18+:
 
 ```sh
-git clone https://github.com/AndreaAcanfora/prompt-blame && cd prompt-blame
-npm ci && npm run build && npm link     # then: prompt-blame <file>
+npx prompt-blame src/app.ts       # or: npm i -g prompt-blame
 ```
 
 ## Settings

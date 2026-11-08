@@ -137,7 +137,8 @@
     "test": "tsc -p tsconfig.test.json && node --test out/test/core.test.js",
     "package": "vsce package --no-dependencies",
     "vscode:prepublish": "node esbuild.mjs --production",
-    "test:integration": "node scripts/integration.mjs"
+    "test:integration": "node scripts/integration.mjs",
+    "prepublishOnly": "node esbuild.mjs --production"
   },
   "devDependencies": {
     "@types/node": "^20.19.43",
@@ -150,5 +151,11 @@
   "galleryBanner": {
     "color": "#0d1117",
     "theme": "dark"
-  }
+  },
+  "files": [
+    "dist/cli.js",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ]
 }
